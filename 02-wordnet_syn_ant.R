@@ -1,7 +1,7 @@
 # wordnet
 library(wordnet)
-Sys.setenv(WNHOME = "/usr/local/Cellar/wordnet/3.1_1/")
-setDict("/usr/local/Cellar/wordnet/3.1_1")
+#Sys.setenv(WNHOME = "/usr/local/Cellar/wordnet/3.1_1/")
+#setDict("/usr/local/Cellar/wordnet/3.1_1")
 
 wordnetExpansion <- data.frame(termID=numeric(0),expandedTerm=character(0),synonym_antonym=character(0))
 
@@ -9,7 +9,7 @@ for(j in 1:nrow(parsedData)){
   term <- parsedData$lemma[j]
   if(parsedData$posType[j]=="ADJ"){
     termType <- "ADJECTIVE"
-  } else if(parsedData$posType[j]=="NOUN"){
+  } else if(parsedData$posType[j]=="NOUN" | parsedData$posType[j]=="PROPN"){
     termType <- "NOUN"
   } else if(parsedData$posType[j]=="VERB"){
     termType <- "VERB"
